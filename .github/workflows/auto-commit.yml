@@ -1,0 +1,29 @@
+name: auto-commit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Set git settings
+        run: |
+          git config user.name "ssatocc"
+          git config user.email "ssatocc@users.noreply.github.com"
+
+      - name: Make changes
+        run: |
+          date >> target.txt
+
+      - name: Commit and Push
+        run: |
+          git add .
+          git commit -m "auto-commit"
+          git push
