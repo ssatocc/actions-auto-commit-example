@@ -7,6 +7,10 @@ Example of auto commit with GitHub Actions
 cp -p .env.example .env
 ```
 
+```bash
+vi .env
+```
+
 ## Run auto-commit workflow
 
 ```bash
